@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gracie | Joline Bag</title>
+    <link rel="icon" href="/media/logo.png"> 
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: sans-serif; 
+            background-color: #f6f3ee;
+        }
+
+        .header {
+            background-color: #8B9B7E;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 16px;
+        }
+
+         /* Navigation */
+         .navbar {
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-group {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-link {
+            color: #666;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .nav-link:hover {
+            color: #333;
+        }
+
+        .logo {
+            color: #D32F2F;
+            font-size: 24px;
+            text-decoration: none;
+            font-family: serif;
+        }
+
+        .product-container {
+            display: flex;
+            max-width: 1200px;
+            margin: 2rem auto;
+            gap: 4rem;
+            padding: 0 20px;
+        }
+
+        .product-image {
+            flex: 1;
+        }
+
+        .product-image img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .product-description {
+            margin-top: 1rem;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .product-details {
+            flex: 1;
+        }
+
+        .product-details h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .product-details .sku {
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .product-details .price {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2c2525;
+            margin-bottom: 10px;
+        }
+
+        .divider {
+            margin: 10px 0;
+            height: 2px;
+            border: 2px solid #2c2525;
+            background-color: #ddd;
+        }
+
+        .color-dropdown {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .color-dropdown span {
+            font-size: 14px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .color-dropdown button {
+            background-color: #f6f3ee;
+            border: 1px solid #ddd;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .color-list {
+            display: none;
+            position: absolute;
+            top: 35px;
+            left: 0;
+            background-color: white;
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            z-index: 10;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+
+        .color-list.active {
+            display: block;
+        }
+
+        .color-list p {
+            margin: 5px 0;
+            cursor: pointer;
+        }
+
+        .color-list p:hover {
+            color: #D32F2F;
+        }
+
+        .size-options {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .size-options button {
+            padding: 5px 15px;
+            border: 1px solid #ddd;
+            background-color: transparent;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .size-options button.active {
+            background-color: #584625;
+            color: rgb(255, 255, 255);
+        }
+
+        .size-options button:hover {
+            border-color: #333;
+        }
+
+        .quantity {
+            margin-bottom: 20px;
+        }
+
+        .quantity input {
+            width: 60px;
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .add-to-cart {
+            background-color: transparent;
+            color: rgb(0, 0, 0);
+            border: 2px solid #57451d;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .buy-now {
+            background-color: rgb(92, 70, 24);
+            color: #ffffff;
+            border: 1px solid #ffffff;
+            padding: 12px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        /* Footer Styles */
+        .footer {
+            margin-top: -20px;
+            margin-bottom: 30px;
+            padding: 2rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            font-family: serif;
+            align-items: center;
+            width: 100%;
+        }
+
+        .brand {
+            font-size: 4rem;
+            color: #D41E1E;
+            font-weight: 500;
+            margin-left: 20px;
+        }
+
+        .social {
+            text-align: center;
+        }
+
+        .social-title {
+            color: #D41E1E;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .social-link {
+            color: #666;
+            text-decoration: none;
+            font-size: 1.2rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .social-link::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #666;
+            display: block;
+        }
+
+        .contact {
+            text-align: center;
+            margin-right: 20px;
+        }
+
+        .contact-title {
+            color: #D41E1E;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .contact-input {
+            border: none;
+            border-bottom: 2px solid #666;
+            background: transparent;
+            color: #666;
+            font-size: 1.2rem;
+            padding: 5px 0;
+            width: 100%;
+            outline: none;
+        }
+
+        .contact-input::placeholder {
+            color: #999;
+            opacity: 1;
+        }
+
+        .product-image img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+
+        .image-thumbnails {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .image-thumbnails img {
+            width: 80px;
+            height: 80px;
+            cursor: pointer;
+            border-radius: 4px;
+            border: 2px solid #ddd;
+            transition: transform 0.3s ease;
+        }
+
+        .image-thumbnails img:hover {
+            transform: scale(1.1);
+        }
+        .cart-popup {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 400px;
+  max-width: 90%;
+  height: 100vh;
+  background: white;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+  transition: right 0.3s ease-in-out;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-popup.active {
+  right: 0;
+}
+
+/* Header Styles */
+.cart-popup-header {
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-popup-header h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.cart-popup-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+/* Content Styles */
+.cart-popup-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+}
+
+/* Cart Item Styles */
+.cart-item {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.cart-item-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+}
+
+.cart-item-details {
+  flex: 1;
+}
+
+.cart-item-title {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+}
+
+.cart-item-price {
+  font-weight: 500;
+  margin: 0 0 0.5rem;
+}
+
+/* Quantity Controls */
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.quantity-controls button {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ddd;
+  background: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.quantity-controls span {
+  min-width: 30px;
+  text-align: center;
+}
+
+/* Subtotal Section */
+.cart-subtotal {
+  padding: 1rem;
+  border-top: 1px solid #eee;
+  background: #f9f9f9;
+  margin-top: 450px;
+}
+
+.cart-subtotal-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+/* Buttons */
+.cart-popup-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.checkout, .view-cart {
+  padding: 0.8rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+}
+
+.checkout {
+  background: #4f4f33;
+  color: white;
+}
+
+.view-cart {
+  background: white;
+  border: 1px solid #4A4A4A;
+  color: #4A4A4A;
+}
+
+/* Secure Checkout Text */
+.secure-checkout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.secure-checkout i {
+  font-size: 1.1rem;
+}
+
+    </style>
+    <script>
+        function toggleColorDropdown() {
+            const colorList = document.querySelector('.color-list');
+            colorList.classList.toggle('active');
+        }
+
+        function selectColor(color) {
+            document.querySelector('.color-dropdown button').textContent = color;
+            document.querySelector('.color-list').classList.remove('active');
+        }
+
+        function selectSize(button) {
+            document.querySelectorAll('.size-options button').forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+        }
+
+        function changeImage(imageSrc) {
+            const mainImage = document.querySelector('.product-image img');
+            mainImage.style.opacity = 0;
+            setTimeout(() => {
+                mainImage.src = imageSrc;
+                mainImage.style.opacity = 1;
+            }, 500);
+        }
+    </script>
+</head>
+<div class="cart-popup">
+    <div class="cart-popup-header">
+      <h2>CART (1 Item)</h2>
+      <button class="cart-popup-close">✕</button>
+    </div>
+    <div class="cart-popup-content">
+      <div class="cart-item">
+        <img class="cart-item-image" id="cart-product-image" src="" alt="">
+        <div class="cart-item-details">
+          <h3 class="cart-item-title" id="cart-product-name"></h3>
+          <p class="cart-item-price" id="cart-product-price"></p>
+          <div class="quantity-controls">
+            <button id="increase-quantity">+</button>
+            <span id="cart-quantity">1</span>
+        <button id="decrease-quantity">-</button>
+          </div>
+        </div>
+      </div>
+      <div class="cart-subtotal">
+        <div class="cart-subtotal-row">
+          <span>Subtotal</span>
+          <span id="cart-subtotal"></span>
+        </div>
+        <p style="font-size: 12px; color: #666;">Taxes and shipping are calculated at checkout.</p>
+        <div class="cart-popup-buttons">
+          <a href="Checkout.html" class="checkout">Checkout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+<body>
+    <div class="header">
+        HOLIDAY SALE UP TO 30%
+    </div>
+
+<!-- Navigation -->
+<nav class="navbar">
+    <div class="nav-group">
+        <a href="/html/Shop.html" class="nav-link">shop</a>
+        <a href="/html/about.html" class="nav-link">about gracie</a>
+    </div>
+    
+    <a href="/html/index.html" class="logo">GRACIE</a>
+    
+    <div class="nav-group">
+        <a href="#" class="nav-link">search</a>
+        <a href="#" class="nav-link">account</a>
+        <a href="#" class="nav-link">cart</a>
+    </div>
+</nav>
+
+    <div class="product-container">
+        <div class="product-image">
+            <img src="/media/tas2.jpg" alt="A Love Like This EDP">
+          
+            <p class="product-description"> Size Medium :
+                <br>25cm x 7cm x 15cm 
+                <br>
+                <br>
+                Size Small : 
+                <br>22cm x 6cm x 13cm 
+            <br>
+            <br>Include :
+            <br>Long strap (Adjustable)
+        </div>
+
+        <div class="product-details">
+            <h1>Joline Bag</h1>
+            <br>
+            <p class="price">RP 280.000,00</p>
+            <br>
+            <p class="sku">Elegant and versatile with a structured design, gold-tone clasp, and timeless colors: dark brown, wine, taupe, white, and black. Perfect for any occasion.</p>
+            <br>
+            <div class="divider"></div>
+
+            <div class="color-dropdown">
+                <button onclick="toggleColorDropdown()">Select Color</button>
+                <div class="color-list">
+                    <p onclick="selectColor('Taupe')">Taupe</p>
+                    <p onclick="selectColor('Black')">Black</p>
+                    <p onclick="selectColor('White')">White</p>
+                </div>
+            </div>
+
+            <div class="size-options">
+                <button onclick="selectSize(this)">Small</button>
+                <button onclick="selectSize(this)">Medium</button>
+            </div>
+
+            <div class="quantity">
+                <label for="quantity">Quantity</label>
+                <input type="number" id="quantity" value="1" min="1">
+            </div>
+
+            <div class="buttons">
+                <button class="add-to-cart">Add to Cart</button>
+                <a href="/html/checkout.html" class="buy-now">Buy Now</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="brand">
+            GRACIE
+        </div>
+        <div class="social">
+            <div class="social-title">SOCIAL MEDIA</div>
+            <div class="social-links">
+                <a href="#" class="social-link">INSTAGRAM</a>
+                <a href="#" class="social-link">TIKTOK</a>
+            </div>
+        </div>
+
+        <div class="contact">
+            <div class="contact-title">(STAY IN THE LOOP)</div>
+            <input type="email" placeholder="iweargracie@gmail.com" class="contact-input">
+        </div>
+    </footer>
+</body>
+</html>
+<script>function toggleColorDropdown() {
+    const colorList = document.querySelector('.color-list');
+    colorList.classList.toggle('active');
+}
+
+function selectColor(color) {
+    document.querySelector('.color-dropdown button').textContent = color;
+    document.querySelector('.color-list').classList.remove('active');
+}
+
+function selectSize(button) {
+    document.querySelectorAll('.size-options button').forEach(btn => btn.classList.remove('active'));
+    button.classList.add('active');
+}
+
+function changeImage(imageSrc) {
+    const mainImage = document.querySelector('.product-image img');
+    mainImage.style.opacity = 0;
+    setTimeout(() => {
+        mainImage.src = imageSrc;
+        mainImage.style.opacity = 1;
+    }, 500);
+}
+
+function addToCart(productName, productPrice, quantity, productImage) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const existingProductIndex = cart.findIndex(item => item.name === productName);
+
+    if (existingProductIndex !== -1) {
+        cart[existingProductIndex].quantity += parseInt(quantity);
+    } else {
+        cart.push({ name: productName, price: productPrice, quantity: parseInt(quantity), image: productImage });
+    }
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+    showCartPopup({ name: productName, price: productPrice, quantity: quantity, image: productImage });
+}
+
+function showCartPopup(product) {
+    const cartPopup = document.querySelector('.cart-popup');
+    if (!cartPopup) return;
+
+    document.getElementById('cart-product-name').textContent = product.name;
+    document.getElementById('cart-product-price').textContent = product.price;
+    document.getElementById('cart-product-image').src = product.image;
+    document.getElementById('cart-quantity').textContent = `Jumlah: ${product.quantity}`;
+
+    const subtotal = product.quantity * parseInt(product.price.replace(/[^\d]/g, ''));
+    document.getElementById('cart-subtotal').textContent = 'Rp ' + subtotal.toLocaleString();
+
+    // Menambahkan event listener untuk tombol + dan -
+    const plusButton = document.getElementById('increase-quantity');
+    const minusButton = document.getElementById('decrease-quantity');
+    const quantityElement = document.getElementById('cart-quantity');
+    
+    // Tombol + menambah kuantitas
+    plusButton.addEventListener('click', () => {
+        product.quantity++;
+        updateCart(product, quantityElement);
+    });
+    
+    // Tombol - mengurangi kuantitas
+    minusButton.addEventListener('click', () => {
+        if (product.quantity > 1) {
+            product.quantity--;
+            updateCart(product, quantityElement);
+        }
+    });
+
+    cartPopup.classList.add('active');
+}
+
+function updateCart(product, quantityElement) {
+    document.getElementById('cart-quantity').textContent = `Jumlah: ${product.quantity}`;
+    const subtotal = product.quantity * parseInt(product.price.replace(/[^\d]/g, ''));
+    document.getElementById('cart-subtotal').textContent = 'Rp ' + subtotal.toLocaleString();
+
+    // Update localStorage jika ada perubahan kuantitas
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const existingProductIndex = cart.findIndex(item => item.name === product.name);
+
+    if (existingProductIndex !== -1) {
+        cart[existingProductIndex].quantity = product.quantity;
+    }
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+document.querySelector('.cart-popup-close').addEventListener('click', () => {
+    const cartPopup = document.querySelector('.cart-popup');
+    cartPopup.classList.remove('active');
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    const addToCartButton = document.querySelector('.add-to-cart');
+    const quantityInput = document.getElementById('quantity');
+
+    if (addToCartButton && quantityInput) {
+        addToCartButton.addEventListener('click', function () {
+           
+           
+            addToCart('Joline Bag', 'Rp 280.000.000', quantityInput.value, '/media/tas2.jpg');
+            
+        });
+    }
+});
+</script>

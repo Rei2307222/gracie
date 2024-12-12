@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gracie | Shop</title>
+    <link rel="icon" href="/media/logo.png"> 
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f6f3ee;
+        }
+
+       
+        .announcement {
+            background-color: #8B9B7E;
+            color: white;
+            text-align: center;
+            padding: 8px 0;
+            font-size: 14px;
+        }
+
+        
+        .navbar {
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-group {
+            display: flex;
+            gap: 70px;
+        }
+
+        .nav-link {
+            color: #666;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .nav-link:hover {
+            color: #333;
+        }
+
+        .logo {
+            color: #D32F2F;
+            font-size: 30px;
+            text-decoration: none;
+            font-family: serif;
+            text-align: center;
+        }
+
+        .content {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+            color: #D32F2F;
+        }
+
+        .sidebar {
+            width: 20%;
+        }
+
+        .sidebar h3 {
+            margin-top: 0;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar li {
+            margin-bottom: 5px;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 20px;
+            width: 70%;
+            color: black;
+        }
+
+        .product {
+            text-align: center;
+        }
+
+        .product img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Footer Styles */
+        .footer {
+            margin-top: -20px;
+            margin-bottom: 30px;
+            padding: 2rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            font-family: serif;
+            align-items: center;
+            width: 100%;
+        }
+
+        .brand {
+            font-size: 4rem;
+            color: #D41E1E;
+            font-weight: 500;
+            margin-left: 20px;
+        }
+
+        .social {
+            text-align: center;
+        }
+
+        .social-title {
+            color: #D41E1E;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .social-link {
+            color: #666;
+            text-decoration: none;
+            font-size: 1.2rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .social-link::after {
+            content: '';
+    position: absolute;
+    width: 100%; /* Mengatur lebar garis sesuai dengan lebar teks */
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: #666;
+    display: block; /* Menjadikan garis sebagai block element */
+        }
+
+        .contact {
+            text-align: center;
+            margin-right: 20px;
+        }
+
+        .contact-title {
+            color: #D41E1E;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .contact-input {
+    border: none; /* Menghapus border default */
+    border-bottom: 2px solid #666; /* Menambahkan garis di bawah */
+    background: transparent; /* Membuat latar belakang transparan */
+    color: #666; /* Warna teks */
+    font-size: 1.2rem; /* Ukuran font */
+    padding: 5px 0; /* Padding atas dan bawah */
+    width: 100%; /* Lebar penuh */
+    outline: none; /* Menghapus outline saat fokus */
+}
+
+.contact-input::placeholder {
+    color: #999; /* Warna placeholder */
+    opacity: 1; /* Mengatur opacity placeholder */
+}
+    </style>
+</head>
+
+<body>
+
+    <div class="announcement">
+        HOLIDAY SALE UP TO 30%
+    </div>
+
+
+    <nav class="navbar">
+        <div class="nav-group">
+            <a href="/html/Shop.html" class="nav-link">shop</a>
+            <a href="/html/about.html" class="nav-link">about gracie</a>
+        </div>
+
+        <a href="/html/index.html" class="logo">GRACIE</a>
+
+        <div class="nav-group">
+            <a href="#" class="nav-link">search</a>
+            <a href="#" class="nav-link">account</a>
+            <a href="#" class="nav-link">cart</a>
+        </div>
+    </nav>
+    <div class="content">
+        <div class="sidebar">
+            <h3>CATEGORY +</h3>
+            <br>
+
+
+
+            <h3>COLOR +</h3>
+            <br>
+
+
+            <h3>SALE +</h3>
+        </div>
+
+        <div class="products">
+            <div class="product">
+                <a href="product1.html">
+                <img src="/media/tas1.jpg" alt="Product 1">
+            </a>
+            </div>
+            <div class="product">
+                <a href="product2.html">
+                <img src="/media/tas2.jpg" alt="Product 1">
+                </a>
+                </div>
+            <div class="product">
+                <a href="product3.html">
+                <img src="/media/tas10.jpg" alt="Product 1">
+            </a>
+            </div>
+            <div class="product">
+                <img src="/media/tas4.jpg" alt="Product 4">
+            </div>
+            <div class="product">
+                <img src="/media/tas5.jpg" alt="Product 5">
+            </div>
+            <div class="product">
+                <img src="/media/tas6.jpg" alt="Product 6">
+            </div>
+            <div class="product">
+                <img src="/media/tas7.jpg" alt="Product 6">
+            </div>
+            <div class="product">
+                <img src="/media/tas3.jpg" alt="Product 6">
+            </div>
+            <div class="product">
+                <img src="/media/tas9.jpg" alt="Product 6">
+            </div>
+            <div class="product">
+                <img src="/media/tas8.jpg" alt="Product 6">
+            </div>
+        </div>
+    </div>
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="brand">
+                GRACIE
+            </div>
+            
+            <div class="social">
+                <div class="social-title">SOCIAL MEDIA</div>
+                <div class="social-links">
+                    <a href="#" class="social-link">INSTAGRAM</a>
+                    <a href="#" class="social-link">TIKTOK</a>
+                </div>
+            </div>
+    
+            <div class="contact">
+                <div class="contact-title">(STAY IN THE LOOP)</div>
+                <input type="email" placeholder="iweargracie@gmail.com" class="contact-input">
+            </div>
+        </footer>
+</body>
+
+</html>
